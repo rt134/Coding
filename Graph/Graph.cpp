@@ -26,7 +26,14 @@ class Graph{
             }else{
                 v[b].push_back(a);
             }
+        }
+        
+        int DFS(src,dest){
+            return 0;
+        }
 
+        int BFS(src,dest){
+            return 0;
         }
 
         void print(){
@@ -38,7 +45,6 @@ class Graph{
                 cout<<endl;
             }
         }
-
 };
 
 int main() {
