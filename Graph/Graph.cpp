@@ -4,6 +4,8 @@
 #include <bits/stdc++.h>
 #include <algorithm>
 #include <string>
+#include <stack>
+#include <queue>
 #include <map>
 using namespace std;
 
@@ -28,13 +30,75 @@ class Graph{
             }
         }
         
-        int DFS(src,dest){
-            return 0;
+        void DFS(int src,int dest){
+            stack<int> stack;
+            bool flag = false;
+            map<int, bool> visited;
+            for(auto i=v.begin();i!=v.end();i++){
+                visited[i->first] = false;
+            }
+
+            stack.push(src);
+
+            while(!stack.empty()){
+                int p = stack.top();
+                stack.pop();
+                visited[p] = true;
+
+                if(p == dest){
+                    cout<<"Found Route to destination";
+                    break;
+                }
+                
+                for(auto i=0;i<v[p].size();i++){
+                    int x = v[p][i];
+                    if(!visited[x]){
+                        stack.push(x);
+                    }
+                }
+            }
+            if(flag){
+                cout<<"Found Route"<<endl;
+            }else{
+                cout<<"Can't Find Route"<<endl;
+            }
         }
 
-        int BFS(src,dest){
-            return 0;
+        void BFS(int src,int dest){
+            bool flag = false;
+            queue<int> q;
+            map<int, bool> visited;
+            for(auto i=v.begin();i!=v.end();i++){
+                visited[i->first] = false;
+            }
+
+            q.push(src);
+
+            while(!q.empty()){
+                int p = q.front();
+                q.pop();
+                visited[p] = true;
+
+                if(p == dest){
+                    flag = true;
+                    break;
+                }
+                
+                for(auto i=0;i<v[p].size();i++){
+                    int x = v[p][i];
+                    if(!visited[x]){
+                        q.push(x);
+                    }
+                }
+            }
+            if(flag){
+                cout<<"Found Route"<<endl;
+            }else{
+                cout<<"Can't Find Route"<<endl;
+            }
         }
+
+        
 
         void print(){
             for(auto i = v.begin();i!=v.end();++i){
@@ -60,6 +124,10 @@ int main() {
         root.Insert(x,y);
     }
     root.print();
+    int src,dest;
+    cin>>src>>dest;
+    // root.DFS(src,dest);
+    root.BFS(src,dest);
 	
 	return 0;
 }
