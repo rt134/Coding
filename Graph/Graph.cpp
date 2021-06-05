@@ -126,7 +126,7 @@ int main() {
     root.print();
     int src,dest;
     cin>>src>>dest;
-    // root.DFS(src,dest);
+    root.DFS(src,dest);
     root.BFS(src,dest);
 	
 	return 0;
