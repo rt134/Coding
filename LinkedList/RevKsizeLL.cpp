@@ -32,32 +32,21 @@ struct Node* Reverse(struct Node* head, int k)
     stack<struct Node*> mystack;
     struct Node* current = head;
     struct Node* prev = NULL;
+    struct Node* next = NULL;
+    int count = k;
 
-    while (current != NULL) {
-
-        int count = 0;
-        while (current != NULL && count < k) {
-            mystack.push(current);
-            current = current->next;
-            count++;
-        }
-
-        while (mystack.size() > 0) {
-
-            if (prev == NULL) {
-                prev = mystack.top();
-                head = prev;
-                mystack.pop();
-            } else {
-                prev->next = mystack.top();
-                prev = prev->next;
-                mystack.pop();
-            }
-        }
+    while(count-- && current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    if(head != NULL){
+        // cout<<"Head"<<head->data<<""<<endl;
+        head->next = Reverse(next,k);
     }
 
-    prev->next = NULL;
-    return head;
+    return prev;
 }
 
 
@@ -78,6 +67,6 @@ int main(){
         Insert(&root,x);
     }
     // Print(root);
-    Reverse(root,k);
+    root = Reverse(root,k);
     Print(root);
 }
