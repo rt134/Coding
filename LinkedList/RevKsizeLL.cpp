@@ -42,7 +42,6 @@ struct Node* Reverse(struct Node* head, int k)
         current = next;
     }
     if(head != NULL){
-        // cout<<"Head"<<head->data<<""<<endl;
         head->next = Reverse(next,k);
     }
 
