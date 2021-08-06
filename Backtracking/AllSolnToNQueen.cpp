@@ -79,13 +79,13 @@ int main(){
         cout<<endl;
     }
     
-    // for(int i=0;i<n;i++){
-    //     cout<<"i ";
-    //     if(NQSoln(board,i,n)){
-    //         count++;
-    //     }
-    // }
-    // cout<<count<<endl;
+    for(int i=0;i<n;i++){
+        cout<<"i ";
+        if(NQSoln(board,i,n)){
+            count++;
+        }
+    }
+    cout<<count<<endl;
 
     return 0;
 }
