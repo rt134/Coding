@@ -15,7 +15,7 @@ int watering(int arr[], int n){
             }
         }
         if(max == min){
-                return -1;
+            return -1;
         }
         open++;
         min = max;

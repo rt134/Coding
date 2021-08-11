@@ -38,6 +38,8 @@ int main() {
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
+    // It is to calculate number of subsets 
+    // with given difference d present in arr
     int n,d,s=0;
     cin>>n>>d;
     int arr[n];
@@ -45,6 +47,11 @@ int main() {
         cin>>arr[i];
         s += arr[i];
     }
+
+    // sum(s1) - sum(s2) = diff
+    // sum(s1) + sum(s2) = sum(Arr)
+    // by these statements : 
+    // sum(s1) = (sum(Arr) + diff)/2
 
     int w = (s+d)/2;
 
