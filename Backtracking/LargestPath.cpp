@@ -17,47 +17,41 @@ void Print(vector<vector<int>> v, int n,int m){
 }
 
 
-int Solve(vector<vector<int>> v, int n, int m, int x, int y, int xdest, int ydest, int count){
+int Solve(vector<vector<int>> v, int n, int m, int x, int y, int i, int j, int count){
     
     cout<<"Count "<<count<<endl;
     Print(v,n,m);
-    if(xdest == x && y == ydest){
+    if(i == x && y == j){
         return count;
     }
 
+    if (i == x && j == y) {
+        return count;
+    }
+ 
+    if (x < 0 || x >= n || x < 0 || y >= m || v[x][y] == 0 ) {
+        return count;
+    }
+ 
+
     v[x][y] = 0;
 
-    int a=0,b=0,c=0,d=0;
+    int ans;
+    int mxm = 0;
 
-    if(x >= 0 && x < n && y-1 >= 0 && y-1 < m){
-        if(v[x][y-1]){
-            d = Solve(v,n,m,x,y-1,xdest,ydest,count+1);   
-        }
-    }
 
+    ans = Solve(v,n,m,x+1,y,i,j,count+1);
+    mxm = max(mxm, ans);
+    ans = Solve(v,n,m,x-1,y,i,j,count+1);
+    mxm = max(mxm, ans);
+    ans = Solve(v,n,m,x,y+1,i,j,count+1);  
+    mxm = max(mxm, ans);  
+    ans = Solve(v,n,m,x,y-1,i,j,count+1); 
+    mxm = max(mxm, ans); 
     
-    if(x+1 >= 0 && x+1 < n && y >= 0 && y < m ){
-        if(v[x+1][y]){
-            a = Solve(v,n,m,x+1,y,xdest,ydest,count+1);
-        }
-    }
-
-    if(x >= 0 && x < n && y+1 >= 0 && y+1 < m){
-        if(v[x][y+11]){
-            c = Solve(v,n,m,x,y+1,xdest,ydest,count+1);   
-        }
-    }
-
-    if(x-1 >= 0 && x-1 < n && y >= 0 && y < m){
-        if(v[x-11][y]){
-            b = Solve(v,n,m,x-1,y,xdest,ydest,count+1);   
-        }
-    }
-    
-
     v[x][y] = 1;
 
-    return max(a,max(b,max(c,d)));
+    return mxm;
 }
 
 
