@@ -35,6 +35,7 @@ int Solve(vector<vector<int>> v, int n, int m, int x, int y, int xdest, int ydes
         }
     }
 
+    
     if(x+1 >= 0 && x+1 < n && y >= 0 && y < m ){
         if(v[x+1][y]){
             a = Solve(v,n,m,x+1,y,xdest,ydest,count+1);
