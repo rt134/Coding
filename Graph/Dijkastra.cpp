@@ -13,10 +13,22 @@ struct Node{
     int weight;
 };
 
+int minDist(map<int,int>dist,map<int,bool> in){
+    int m = INT_MAX;
+    int idx;
+
+    for(auto i:dist){
+        if(!in[i.first] && dist[i.first] < m){
+            m = dist[i.first];
+            idx = i.first;
+        }
+    }
+    return idx;
+}
+
 class Graph {
     public:
-    unordered_map<int,vector<Node*>> v;
-    unordered_map<int,int> apsp;
+    map<int,vector<Node*>> v;
     void Insert(int a, int b, int w){
         Node* temp1 = new Node;
         temp1->data = b;
@@ -43,25 +55,42 @@ class Graph {
         }
     }
 
-    void SortestPath(int src){
-        apsp[src] = 0;
-        set<Node*> s;
-        Node t = new Node;
-        t->data = src;
-        t->weight = 0;
-        s.push_back(t);
+    void Dijkstra(int src){
+        map<int,int> dist;
+        map<int, bool> in;
+        int v = 0;
 
-        while(!s.empty()){
-            auto it = *(s.begin());
-            
-
+        for(auto i = v.begin();i!=v.end();++i){
+            dist[i.first] = INT_MAX;
+            in[i.first] = false;
+            i++;
         }
+        dist[src] = 0;
+
+
+        for(int i = 0;i<v-1;i++){
+            int u = minDist(dist,in);
+
+            in[u] = true;
+
+            for(auto j:v[u]){
+                if(dist[u] + j.weight < dist[j.data]){
+                    dist[j.data] = dist[u] + j.weight;
+                }
+            }
+        }
+
+        cout<<"Dijkstra"<<endl;
+        for(auto i=0;i<dist.size();i++){
+            cout<<dist[i]<<" ";
+        }
+        cout<<endl;
+
     }
 
     void print(){
         for(auto i = v.begin();i!=v.end();++i){
             cout<<i->first<<" : ";
-            apsp[i->first] = 99999999;
             for(auto j =0;j<i->second.size();j++){
                 cout<<"["<<i->second[j]->data<<","<<i->second[j]->weight<<"]"<<" ";
             }
@@ -85,6 +114,7 @@ int main(){
         root.Insert(x,y,w);
     }
     root.print();
+    root.Dijkstra(0);
 	
 	return 0;
 
