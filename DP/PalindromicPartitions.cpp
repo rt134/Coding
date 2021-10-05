@@ -26,7 +26,7 @@ int Solve(string s,int l,int r){
 
     int mn=INT_MAX;
     for(int i=l;i<r;i++){
-        int t = 1 + Solve(s,l,i,v) + Solve(s,i+1,r);
+        int t = 1 + Solve(s,l,i) + Solve(s,i+1,r);
         mn = min(t,mn);
     }
 
@@ -40,7 +40,6 @@ int main() {
     
     string s;
     cin>>s;
-    vector<string> v;
 
     int x = Solve(s,0,s.length());
     cout<<x;

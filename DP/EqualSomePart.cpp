@@ -19,7 +19,6 @@ int tKp(int v[],int w, int n){
             if(j == 0){
                 t[i][j] = 1;
             }
-
         }
     }
 
