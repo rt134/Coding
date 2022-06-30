@@ -1,0 +1,68 @@
+{
+    "fairings": {
+        "reused": null,
+        "recovery_attempt": null,
+        "recovered": null,
+        "ships": []
+    },
+    "links": {
+        "patch": {
+            "small": "https://imgur.com/BrW201S.png",
+            "large": "https://imgur.com/573IfGk.png"
+        },
+        "reddit": {
+            "campaign": "https://www.reddit.com/r/spacex/comments/jhu37i/starlink_general_discussion_and_deployment_thread/",
+            "launch": "https://www.reddit.com/r/spacex/comments/sfr8l0/rspacex_starlink_47_launch_discussion_and_updates/",
+            "media": null,
+            "recovery": "https://www.reddit.com/r/spacex/comments/k2ts1q/rspacex_fleet_updates_discussion_thread/"
+        },
+        "flickr": {
+            "small": [],
+            "original": []
+        },
+        "presskit": null,
+        "webcast": "https://youtu.be/UY3fZ6PwuUY",
+        "youtube_id": "UY3fZ6PwuUY",
+        "article": null,
+        "wikipedia": "https://en.wikipedia.org/wiki/Starlink"
+    },
+    "static_fire_date_utc": null,
+    "static_fire_date_unix": null,
+    "net": false,
+    "window": null,
+    "rocket": "5e9d0d95eda69973a809d1ec",
+    "success": true,
+    "failures": [],
+    "details": null,
+    "crew": [],
+    "ships": [],
+    "capsules": [],
+    "payloads": [
+        "61e05520be8d8b66799018d5"
+    ],
+    "launchpad": "5e9e4502f509094188566f88",
+    "flight_number": 149,
+    "name": "Starlink 4-7 (v1.5)",
+    "date_utc": "2022-02-03T18:13:00.000Z",
+    "date_unix": 1643911980,
+    "date_local": "2022-02-03T13:13:00-05:00",
+    "date_precision": "hour",
+    "upcoming": false,
+    "cores": [
+        {
+            "core": "5f57c53d0622a6330279009f",
+            "flight": 6,
+            "gridfins": true,
+            "legs": true,
+            "reused": true,
+            "landing_attempt": true,
+            "landing_success": true,
+            "landing_type": "ASDS",
+            "landpad": "5e9e3033383ecb075134e7cd"
+        }
+    ],
+    "auto_update": true,
+    "tbd": false,
+    "launch_library_id": "de39dd1a-0f72-4afd-a6b9-1b848b246071",
+    "id": "61e048ffbe8d8b66799018d1"
+}
